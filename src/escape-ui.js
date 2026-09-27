@@ -581,13 +581,6 @@
           }).join("") + "</div><span>Lives left</span></div>" +
       "</div>" +
 
-      '<div class="nextstep">' +
-        '<span class="stepnum">Last step</span>' +
-        '<div><b>Show this screen to the booth team</b>' +
-        "<p>Your name and score are at the top of this screen. They&#8217;ll take them " +
-        "down, or snap a photo, before you close the page.</p></div>" +
-      "</div>" +
-
       '<h3 class="sub">What gets you out every time</h3>' +
       '<ul class="takeaways">' +
         '<li><span class="num">1</span><div><b>A Digital Identity is trusted proof it&#8217;s really you.</b> ' +
