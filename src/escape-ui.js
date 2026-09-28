@@ -90,7 +90,7 @@
       '<p class="lede"><b>Five rooms. Three lives. Three minutes.</b></p>' +
 
       '<div class="field">' +
-        '<label for="p-name">Your name</label>' +
+        '<label for="p-name">Your first and last name</label>' +
         '<input type="text" id="p-name" autocomplete="name" autocapitalize="words" ' +
           'placeholder="e.g. Alex Taylor" maxlength="40" value="' + esc(previous ? previous.name : "") + '">' +
       "</div>" +
@@ -115,10 +115,14 @@
     var err = document.getElementById("start-err");
 
     function begin() {
-      var name = nameInput.value.trim();
+      var name = nameInput.value.trim().replace(/\s+/g, " ");
       var staffId = staffIdInput ? staffIdInput.value.trim() : "";
-      if (name.length < 2) {
-        err.textContent = "Enter your name to start."; err.hidden = false; nameInput.focus(); return;
+      // Two names, so the booth can tell apart players who share a first name.
+      var parts = name ? name.split(" ") : [];
+      var named = parts.length >= 2 && parts.every(function (p) { return p.length >= 2; });
+      if (!named) {
+        err.textContent = "Enter your first and last name to start.";
+        err.hidden = false; nameInput.focus(); return;
       }
       if (CFG.collectStaffId && CFG.staffIdRequired && !staffId) {
         err.textContent = "Enter your staff ID to start."; err.hidden = false; staffIdInput.focus(); return;
