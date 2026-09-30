@@ -118,8 +118,9 @@
       var name = nameInput.value.trim().replace(/\s+/g, " ");
       var staffId = staffIdInput ? staffIdInput.value.trim() : "";
       // Two names, so the booth can tell apart players who share a first name.
+      // A single-letter surname or initial is fine.
       var parts = name ? name.split(" ") : [];
-      var named = parts.length >= 2 && parts.every(function (p) { return p.length >= 2; });
+      var named = parts.length >= 2 && parts[0].length >= 2;
       if (!named) {
         err.textContent = "Enter your first and last name to start.";
         err.hidden = false; nameInput.focus(); return;
