@@ -254,9 +254,15 @@
 
     var clearBtn = document.getElementById("h-clear");
     if (clearBtn) clearBtn.onclick = function () {
-      if (confirm("Delete all results stored on this device? Export first \u2014 this cannot be undone.")) {
-        STORE.clear().then(load);
-      }
+      var where = STORE.central
+        ? "Delete all " + rows.length + " results for everyone, from the central database?"
+        : "Delete all results stored on this device?";
+      if (!confirm(where + " Export first \u2014 this cannot be undone.")) return;
+      clearBtn.disabled = true;
+      STORE.clear().then(load).catch(function (e) {
+        clearBtn.disabled = false;
+        alert("Could not clear results. " + (e && e.message ? e.message : ""));
+      });
     };
   }
 

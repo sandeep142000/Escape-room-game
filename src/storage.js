@@ -176,6 +176,20 @@
               };
             });
           });
+      },
+
+      /* PostgREST refuses an unfiltered DELETE, hence the always-true filter.
+         Needs a delete policy and grant for the authenticated role. */
+      clear: function () {
+        if (!session) return Promise.reject(new Error("Sign in first."));
+        return rest("/rest/v1/" + CFG.supabase.table + "?game_id=not.is.null", {
+          method: "DELETE",
+          headers: { "Prefer": "return=minimal" }
+        }).then(function (r) {
+          if (!r.ok) throw new Error("Score service returned " + r.status + ".");
+          localStorage.removeItem(LOCAL_KEY);
+          localStorage.removeItem(SENT_KEY);
+        });
       }
     };
   })();
