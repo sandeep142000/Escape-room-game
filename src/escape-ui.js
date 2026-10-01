@@ -25,6 +25,14 @@
     });
   }
 
+  function clean(s) { return String(s == null ? "" : s).trim().replace(/\s+/g, " "); }
+
+  /* Results store one `name`, so a replay prefill has to be split back out. */
+  function splitName(name) {
+    var parts = clean(name).split(" ");
+    return [parts.shift() || "", parts.join(" ")];
+  }
+
   var ICON = {
     heart: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-8-4.6-8-10.2A4.8 4.8 0 0 1 12 7a4.8 4.8 0 0 1 8 3.8C20 16.4 12 21 12 21z"/></svg>',
     clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
@@ -83,6 +91,8 @@
     stopTicker();
     showHud(false);
 
+    var prefill = splitName(previous ? previous.name : "");
+
     stage.innerHTML =
       '<p class="eyebrow">' + esc(CFG.eventName) + "</p>" +
       "<h1>Identity <em>Lockdown</em></h1>" +
@@ -90,9 +100,14 @@
       '<p class="lede"><b>Five rooms. Three lives. Three minutes.</b></p>' +
 
       '<div class="field">' +
-        '<label for="p-name">Your first and last name</label>' +
-        '<input type="text" id="p-name" autocomplete="name" autocapitalize="words" ' +
-          'placeholder="e.g. Alex Taylor" maxlength="40" value="' + esc(previous ? previous.name : "") + '">' +
+        '<label for="p-first">First name</label>' +
+        '<input type="text" id="p-first" autocomplete="given-name" autocapitalize="words" ' +
+          'placeholder="e.g. Alex" maxlength="20" value="' + esc(prefill[0]) + '">' +
+      "</div>" +
+      '<div class="field">' +
+        '<label for="p-last">Last name</label>' +
+        '<input type="text" id="p-last" autocomplete="family-name" autocapitalize="words" ' +
+          'placeholder="e.g. Taylor" maxlength="20" value="' + esc(prefill[1]) + '">' +
       "</div>" +
       (CFG.collectStaffId ?
         '<div class="field">' +
@@ -110,32 +125,37 @@
         "<p>" + esc(CFG.privacyNotice) + "</p>" +
       "</div>";
 
-    var nameInput = document.getElementById("p-name");
+    var firstInput = document.getElementById("p-first");
+    var lastInput = document.getElementById("p-last");
     var staffIdInput = document.getElementById("p-staffid");
     var err = document.getElementById("start-err");
 
     function begin() {
-      var name = nameInput.value.trim().replace(/\s+/g, " ");
-      var staffId = staffIdInput ? staffIdInput.value.trim() : "";
-      // Two names, so the booth can tell apart players who share a first name.
-      // Either name may be a single letter or initial.
-      var parts = name ? name.split(" ") : [];
-      var named = parts.length >= 2;
-      if (!named) {
-        err.textContent = "Enter your first and last name to start.";
-        err.hidden = false; nameInput.focus(); return;
+      var first = clean(firstInput.value);
+      var last = clean(lastInput.value);
+      // Both names, so the booth can tell apart players who share a first name.
+      // Either may be a single letter or initial.
+      if (!first) {
+        err.textContent = "Enter your first name to start.";
+        err.hidden = false; firstInput.focus(); return;
       }
+      if (!last) {
+        err.textContent = "Enter your last name to start.";
+        err.hidden = false; lastInput.focus(); return;
+      }
+      var staffId = staffIdInput ? staffIdInput.value.trim() : "";
       if (CFG.collectStaffId && CFG.staffIdRequired && !staffId) {
         err.textContent = "Enter your staff ID to start."; err.hidden = false; staffIdInput.focus(); return;
       }
-      renderIntro({ name: name, staffId: staffId });
+      // Stored as one field so the leaderboard, export and database are unchanged.
+      renderIntro({ name: first + " " + last, staffId: staffId });
     }
 
     document.getElementById("go").onclick = begin;
-    [nameInput, staffIdInput].forEach(function (i) {
+    [firstInput, lastInput, staffIdInput].forEach(function (i) {
       if (i) i.addEventListener("keydown", function (e) { if (e.key === "Enter") begin(); });
     });
-    nameInput.focus();
+    firstInput.focus();
   }
 
   /* --------------------------------------------------------------- intro */
