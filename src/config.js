@@ -28,6 +28,9 @@ window.VM_CONFIG = {
     /* Rooms drawn at random can miss the point of the day, so this many are
        forced to be Digital Identity scenarios. Room 3 always is one. */
     minIdentityRooms: 3,
+
+    /* Key fragments needed to escape. Below five, one slip still gets you out. */
+    escapeAt: 4,
     points: {
       base: 100,             // a correct decision
       speed: 40,             // maximum, scaled against speedTarget

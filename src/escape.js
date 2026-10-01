@@ -156,10 +156,11 @@
   };
 
   /* Graded endings for a run that was played out but fell short of the key.
-     Reached via the "contained" outcome, not by escaping. */
+     Reached via the "contained" outcome, so every `min` here sits below
+     CFG.escapeAt. */
   var CONTAINED = [
-    { min: 4, title: "Human Firewall",   msg: "One slip, but you shut the attacker down and kept your account." },
-    { min: 3, title: "Sharp Eye",        msg: "You held the line on most of it. A couple of those were genuinely nasty." },
+    { min: 3, title: "Human Firewall",   msg: "One more room and you'd have been out. You kept your account." },
+    { min: 2, title: "Sharp Eye",        msg: "You held the line on most of it. A couple of those were genuinely nasty." },
     { min: 0, title: "Out by a Whisker", msg: "The attacker got further than you'd like — but you're still standing." }
   ];
 
@@ -167,7 +168,12 @@
     var outcome = result.outcome || (result.escaped ? "escaped" : result.lives <= 0 ? "compromised" : "timeout");
 
     if (outcome === "escaped") {
-      return { title: "Identity Guardian", msg: "Five rooms, five keys, nothing got past you." };
+      return {
+        title: "Identity Guardian",
+        msg: result.correct >= result.total
+          ? "Five rooms, five keys, nothing got past you."
+          : "One slip, but you still locked the attacker out."
+      };
     }
     if (outcome === "compromised") {
       return { title: "Identity Compromised", msg: "The attacker got in before you secured your account." };

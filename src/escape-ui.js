@@ -19,6 +19,10 @@
 
   var run = null, ticker = null, roomStart = 0, usedHint = false, mistakes = 0, settled = false;
 
+  function escapeAt() {
+    return Math.min(ESC_CFG.escapeAt || ROOMS.length, ROOMS.length);
+  }
+
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
@@ -79,7 +83,7 @@
       paintHud();
       if (run && run.msLeft() <= 0) {
         stopTicker();
-        run.finish(false, true);
+        run.finish(run.fragments >= escapeAt(), true);
         renderResult();
       }
     }, 250);
@@ -170,7 +174,7 @@
         "and can you tell when someone else is faking it? You have three minutes.</p>" +
 
       '<div class="mission">' +
-        "<div><b>5 rooms</b>Each one you clear gives you a key fragment.</div>" +
+        "<div><b>5 rooms</b>Clear " + escapeAt() + " of them to get the key out.</div>" +
         "<div><b>3 lives</b>A dangerous decision costs one. Lose all three and the attacker wins.</div>" +
         "<div><b>3 minutes</b>One clock for the whole run. It doesn't stop.</div>" +
       "</div>" +
@@ -492,7 +496,7 @@
     var next = document.getElementById("next");
     next.onclick = function () {
       if (dead) { stopTicker(); run.finish(false, false); renderResult(); return; }
-      if (last) { stopTicker(); run.finish(run.fragments === ROOMS.length, false); renderVault(); return; }
+      if (last) { stopTicker(); run.finish(run.fragments >= escapeAt(), false); renderVault(); return; }
       run.index++;
       renderRoom();
     };
@@ -505,7 +509,7 @@
 
     // Fragments are only awarded for rooms you cleared, so a partial run
     // cannot assemble the key.
-    if (run.fragments < ROOMS.length) { renderResult(); return; }
+    if (run.fragments < escapeAt()) { renderResult(); return; }
 
     stage.innerHTML =
       '<p class="eyebrow">Final door</p>' +
@@ -521,7 +525,7 @@
       "</div>";
 
     var row = document.getElementById("fragrow");
-    for (var i = 0; i < ROOMS.length; i++) {
+    for (var i = 0; i < run.fragments; i++) {
       if (i) row.insertAdjacentHTML("beforeend", '<span class="plus">+</span>');
       row.insertAdjacentHTML("beforeend", '<span class="bigfrag"></span>');
     }
