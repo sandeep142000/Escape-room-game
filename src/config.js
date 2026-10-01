@@ -22,7 +22,7 @@ window.VM_CONFIG = {
   escape: {
     name:     "Identity Lockdown",
     subtitle: "Can you secure your identity before the attacker gets in?",
-    totalSeconds: 180,       // overall countdown across all five rooms
+    totalSeconds: 240,       // overall countdown across all five rooms
     lives: 3,
 
     /* Rooms drawn at random can miss the point of the day, so this many are
@@ -34,7 +34,7 @@ window.VM_CONFIG = {
     points: {
       base: 100,             // a correct decision
       speed: 40,             // maximum, scaled against speedTarget
-      speedTargetSeconds: 36,// matches the 180s budget across five rooms
+      speedTargetSeconds: 48,// matches the 240s budget across five rooms
       perfectRoom: 10,       // right first time, nothing wrong selected
       noHint: 10             // cleared the room without opening the hint
     },
