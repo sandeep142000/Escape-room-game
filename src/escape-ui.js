@@ -578,7 +578,6 @@
 
     var result = run.result();
     var rank = IL.rankFor(result);
-    var won = result.escaped;
 
     var HEAD = {
       escaped:     { cls: "escaped",     text: "IDENTITY<br>SECURED" },
@@ -610,7 +609,25 @@
           }).join("") + "</div><span>Lives left</span></div>" +
       "</div>" +
 
-      '<h3 class="sub">Remember these four</h3>' +
+      '<div class="foot">' +
+        '<button class="big" id="lessons">What to remember</button>' +
+        '<button class="big alt" id="newplayer">Next player</button>' +
+      "</div>";
+
+    toTop();
+
+    STORE.submit(result);
+
+    var player = run.player;
+    document.getElementById("lessons").onclick = function () { renderLessons(result, player); };
+    document.getElementById("newplayer").onclick = function () { renderStart(null); };
+    document.getElementById("lessons").focus();
+  }
+
+  /* Second results page, so the score screen itself never needs scrolling. */
+  function renderLessons(result, player) {
+    stage.innerHTML =
+      '<p class="eyebrow">What to remember</p>' +
       '<ul class="takeaways">' +
         '<li><span class="num">1</span><div><b>A Digital Identity proves it&#8217;s really you.</b> ' +
           "Voluntary. Two minutes.</div></li>" +
@@ -625,15 +642,12 @@
       enrolCta() +
 
       '<div class="foot">' +
-        '<button class="big" id="again">' + (won ? "Play again" : "Try again") + "</button>" +
+        '<button class="big" id="again">' + (result.escaped ? "Play again" : "Try again") + "</button>" +
         '<button class="big alt" id="newplayer">Next player</button>' +
       "</div>";
 
     toTop();
 
-    STORE.submit(result);
-
-    var player = run.player;
     document.getElementById("again").onclick = function () {
       run = new IL.Run(player);
       showHud(true);
