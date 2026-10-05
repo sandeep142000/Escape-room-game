@@ -581,18 +581,19 @@
     var won = result.escaped;
 
     var HEAD = {
-      escaped:     { cls: "escaped",     text: "IDENTITY<br>SECURED",     sub: "You escaped." },
-      contained:   { cls: "contained",   text: "ATTACKER<br>CONTAINED",   sub: "You played every room and kept your account." },
-      compromised: { cls: "compromised", text: "IDENTITY<br>COMPROMISED", sub: "" },
-      timeout:     { cls: "compromised", text: "OUT OF<br>TIME",          sub: "" }
+      escaped:     { cls: "escaped",     text: "IDENTITY<br>SECURED" },
+      contained:   { cls: "contained",   text: "ATTACKER<br>CONTAINED" },
+      compromised: { cls: "compromised", text: "IDENTITY<br>COMPROMISED" },
+      timeout:     { cls: "compromised", text: "OUT OF<br>TIME" }
     };
     var head = HEAD[result.outcome] || HEAD.compromised;
+    // Some ranks repeat the headline word for word; show it once.
+    var repeatsHead = rank.title.toUpperCase() === head.text.replace("<br>", " ");
 
     stage.innerHTML =
       '<p class="eyebrow">' + esc(CFG.eventName) + "</p>" +
       '<p class="' + head.cls + '">' + head.text + "</p>" +
-      (head.sub ? '<p class="lede">' + esc(head.sub) + "</p>" : "") +
-      '<div class="rank">' + esc(rank.title) + "</div>" +
+      (repeatsHead ? "" : '<div class="rank">' + esc(rank.title) + "</div>") +
       '<p class="rankmsg">' + esc(rank.msg) + "</p>" +
 
       '<p class="playerplate"><span>Player</span>' + esc(result.name) + "</p>" +
@@ -609,16 +610,16 @@
           }).join("") + "</div><span>Lives left</span></div>" +
       "</div>" +
 
-      '<h3 class="sub">What gets you out every time</h3>' +
+      '<h3 class="sub">Remember these four</h3>' +
       '<ul class="takeaways">' +
-        '<li><span class="num">1</span><div><b>A Digital Identity is trusted proof it&#8217;s really you.</b> ' +
-          "It&#8217;s voluntary, takes about two minutes, and it turns a three-way verification call into a quick check.</div></li>" +
+        '<li><span class="num">1</span><div><b>A Digital Identity proves it&#8217;s really you.</b> ' +
+          "Voluntary. Two minutes.</div></li>" +
         '<li><span class="num">2</span><div><b>The real process never asks for documents, codes or passwords.</b> ' +
-          "Consent first, a photo from your own device, then review. Anything else claiming to be it is a phish.</div></li>" +
-        '<li><span class="num">3</span><div><b>Never approve a prompt you didn&#8217;t start,</b> ' +
-          "and never read out a code. That&#8217;s the attacker&#8217;s whole plan.</div></li>" +
+          "Anything that does is a phish.</div></li>" +
+        '<li><span class="num">3</span><div><b>Never approve a prompt you didn&#8217;t start.</b> ' +
+          "Never read out a code.</div></li>" +
         '<li><span class="num">4</span><div><b>Verify on a channel they don&#8217;t control.</b> ' +
-          "A face, a voice and a photo can all be faked. Call back on a number you already had.</div></li>" +
+          "Faces and voices can be faked.</div></li>" +
       "</ul>" +
 
       enrolCta() +

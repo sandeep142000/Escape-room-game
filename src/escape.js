@@ -159,9 +159,9 @@
      Reached via the "contained" outcome, so every `min` here sits below
      CFG.escapeAt. */
   var CONTAINED = [
-    { min: 3, title: "Human Firewall",   msg: "One more room and you'd have been out. You kept your account." },
-    { min: 2, title: "Sharp Eye",        msg: "You held the line on most of it. A couple of those were genuinely nasty." },
-    { min: 0, title: "Out by a Whisker", msg: "The attacker got further than you'd like — but you're still standing." }
+    { min: 3, title: "Human Firewall",   msg: "One more room and you'd have been out." },
+    { min: 2, title: "Sharp Eye",        msg: "You held the line on most of it." },
+    { min: 0, title: "Out by a Whisker", msg: "The attacker got close — but you're still standing." }
   ];
 
   function rankFor(result) {
@@ -171,15 +171,15 @@
       return {
         title: "Identity Guardian",
         msg: result.correct >= result.total
-          ? "Five rooms, five keys, nothing got past you."
+          ? "Five rooms. Nothing got past you."
           : "One slip, but you still locked the attacker out."
       };
     }
     if (outcome === "compromised") {
-      return { title: "Identity Compromised", msg: "The attacker got in before you secured your account." };
+      return { title: "Identity Compromised", msg: "The attacker got in first." };
     }
     if (outcome === "timeout") {
-      return { title: "Out of Time", msg: "The clock beat you. The attacker was still working." };
+      return { title: "Out of Time", msg: "The clock beat you." };
     }
     for (var i = 0; i < CONTAINED.length; i++) {
       if (result.correct >= CONTAINED[i].min) return CONTAINED[i];

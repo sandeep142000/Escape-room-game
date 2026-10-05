@@ -65,7 +65,7 @@ body{
 h1{font-size:clamp(40px,11vw,72px);line-height:.94;letter-spacing:-.035em;font-weight:800;margin:0 0 14px}
 h1 em{font-style:normal;color:var(--accent)}
 h2{font-size:clamp(22px,5vw,30px);letter-spacing:-.02em;margin:0 0 12px}
-h3.sub{font-size:15px;font-weight:700;color:var(--dim);margin:26px 0 10px;letter-spacing:.02em}
+h3.sub{font-size:17px;font-weight:700;color:var(--dim);margin:26px 0 10px;letter-spacing:.02em}
 .eyebrow{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
 .lede{font-size:clamp(16px,4vw,19px);line-height:1.55;color:#C3CAD3;max-width:56ch;margin:0 0 14px}
 .tiny{font-size:12.5px;color:var(--dim);line-height:1.55}
@@ -242,16 +242,16 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid 
 .scorewrap{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;animation:pop .45s ease both}
 .score{font-size:clamp(62px,20vw,118px);font-weight:800;line-height:.85;letter-spacing:-.045em;margin:0;font-variant-numeric:tabular-nums}
 .score small{font-size:.26em;font-weight:700;color:var(--dim);letter-spacing:0}
-.rank{font-size:clamp(20px,5vw,28px);font-weight:800;margin:14px 0 4px;color:var(--accent);letter-spacing:-.02em}
-.rankmsg{font-size:15px;color:#C3CAD3;line-height:1.55;max-width:52ch;margin:0}
+.rank{font-size:clamp(22px,5.6vw,30px);font-weight:800;margin:14px 0 4px;color:var(--accent);letter-spacing:-.02em}
+.rankmsg{font-size:clamp(17px,4.6vw,20px);color:var(--text);line-height:1.45;max-width:52ch;margin:0}
 .statrow{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:20px 0 0}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:13px 15px}
-.stat b{display:block;font-size:23px;font-variant-numeric:tabular-nums;line-height:1.15}
-.stat span{font-size:11.5px;color:var(--dim)}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 16px}
+.stat b{display:block;font-size:27px;font-variant-numeric:tabular-nums;line-height:1.15}
+.stat span{font-size:13.5px;color:var(--dim)}
 .stat.good b{color:var(--good)}
 .stat.danger b{color:var(--bad)}
 .takeaways{list-style:none;padding:0;margin:24px 0 0;max-width:60ch}
-.takeaways li{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.5;color:#C3CAD3}
+.takeaways li{display:flex;gap:12px;padding:14px 0;border-top:1px solid var(--line);font-size:17px;line-height:1.45;color:#C3CAD3}
 .takeaways .num{background:var(--accent);color:var(--accent-ink);border:0}
 .savenote{font-size:12.5px;margin-top:16px;display:flex;align-items:center;gap:8px;color:var(--dim)}
 .savenote.bad{color:var(--warn)}

@@ -43,8 +43,8 @@ window.VM_CONFIG = {
        Set url to the real intranet page before the event; leave it empty and
        the line still shows, just without a link. http/https only. */
     enrol: {
-      heading: "Haven't created your Digital Identity yet?",
-      text:    "It's voluntary, takes about two minutes, and it turns a three-way verification call into a quick check.",
+      heading: "No Digital Identity yet?",
+      text:    "It's voluntary and takes about two minutes.",
       linkLabel: "Create it on the intranet",
       url: ""
     }
