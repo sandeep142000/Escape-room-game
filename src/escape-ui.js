@@ -178,7 +178,6 @@
         "<div><b>4 minutes</b>The clock never stops.</div>" +
       "</div>" +
 
-      roomMap(-1) +
       '<div class="foot"><button class="big" id="begin">Start the clock</button></div>';
 
     document.getElementById("begin").onclick = function () {
@@ -188,16 +187,6 @@
       renderRoom();
     };
     document.getElementById("begin").focus();
-  }
-
-  function roomMap(activeIndex) {
-    return '<ul class="map">' + ROOMS.map(function (r, i) {
-      var state = i < activeIndex ? "done" : i === activeIndex ? "now" : "";
-      return '<li class="' + state + '">' +
-        '<span class="dot">' + (i < activeIndex ? "\u2713" : i + 1) + "</span>" +
-        '<span class="nm">' + esc(r.title) + "</span>" +
-      "</li>";
-    }).join("") + "</ul>";
   }
 
   /* ---------------------------------------------------------------- rooms */
@@ -596,7 +585,7 @@
       '<p class="rankmsg">' + esc(rank.msg) + "</p>" +
 
       '<p class="playerplate"><span>Player</span>' + esc(result.name) + "</p>" +
-      '<div class="scorewrap" style="margin-top:6px"><p class="score">' +
+      '<div class="scorewrap" style="margin-top:2px"><p class="score">' +
         result.score + "<small> pts</small></p></div>" +
 
       '<div class="statrow">' +

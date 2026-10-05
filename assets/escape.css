@@ -57,14 +57,14 @@ body.playing{padding-top:143px}
 
 /* ------------------------------------------------------------ story intro */
 .story{
-  border-left:3px solid var(--bad);padding:14px 0 14px 18px;margin:22px 0;
+  border-left:3px solid var(--bad);padding:12px 0 12px 18px;margin:18px 0;
   font-size:clamp(19px,5.4vw,24px);line-height:1.45;max-width:54ch;color:#D4DAE2
 }
 .story b{color:var(--text)}
 .story + .lede{font-size:clamp(17px,4.6vw,21px);color:var(--text);font-weight:600}
 
 .mission{
-  display:grid;gap:10px;margin:22px 0;
+  display:grid;gap:10px;margin:18px 0 0;
   grid-template-columns:repeat(auto-fit,minmax(140px,1fr))
 }
 .mission div{
@@ -265,7 +265,7 @@ body.playing{padding-top:143px}
 }
 
 .enrol{
-  margin-top:22px;padding:16px 18px;border-radius:12px;
+  margin-top:16px;padding:13px 16px;border-radius:12px;
   background:var(--card);border:1px solid var(--line);text-align:left
 }
 .enrol b{display:block;font-size:18px;margin-bottom:5px}
@@ -291,7 +291,7 @@ body.playing{padding-top:143px}
 /* --------------------------------------------------------------- results */
 /* Name sits directly above the score so one photo captures both. */
 .playerplate{
-  display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:22px 0 0;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:16px 0 0;
   font-size:clamp(21px,5.4vw,28px);font-weight:800;letter-spacing:-.02em;line-height:1.2;
   overflow-wrap:anywhere
 }
