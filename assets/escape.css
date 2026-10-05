@@ -13,8 +13,7 @@
 .hud{
   position:fixed;top:81px;left:0;right:0;z-index:55;
   display:flex;align-items:center;gap:10px;
-  padding:9px 16px;background:#0B0E13F2;border-bottom:1px solid var(--line);
-  backdrop-filter:blur(8px)
+  padding:9px 16px;background:var(--bg)
 }
 .hud[hidden]{display:none}   /* the attribute must beat display:flex */
 .hud .spacer{flex:1}
