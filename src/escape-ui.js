@@ -168,15 +168,14 @@
 
     stage.innerHTML =
       '<p class="eyebrow">Mission briefing</p>' +
-      '<div class="story">Your phone is missing, your MFA is unavailable, and ' +
-        "<b>someone is already trying to get into your account</b>.</div>" +
-      '<p class="lede">Every door ahead asks the same question: <b>can you prove it&#8217;s really you</b> &#8212; ' +
-        "and can you tell when someone else is faking it? You have four minutes.</p>" +
+      '<div class="story">Your phone is gone. Your MFA is gone.<br>' +
+        "<b>Someone is trying to get into your account.</b></div>" +
+      '<p class="lede">Can you prove it&#8217;s really you?</p>' +
 
       '<div class="mission">' +
-        "<div><b>5 rooms</b>Clear " + escapeAt() + " of them to get the key out.</div>" +
-        "<div><b>3 lives</b>A dangerous decision costs one. Lose all three and the attacker wins.</div>" +
-        "<div><b>4 minutes</b>One clock for the whole run. It doesn't stop.</div>" +
+        "<div><b>5 rooms</b>Clear " + escapeAt() + " to escape.</div>" +
+        "<div><b>3 lives</b>A bad call costs one.</div>" +
+        "<div><b>4 minutes</b>The clock never stops.</div>" +
       "</div>" +
 
       roomMap(-1) +
@@ -196,7 +195,7 @@
       var state = i < activeIndex ? "done" : i === activeIndex ? "now" : "";
       return '<li class="' + state + '">' +
         '<span class="dot">' + (i < activeIndex ? "\u2713" : i + 1) + "</span>" +
-        '<span class="nm">' + esc(r.title) + "<small>" + esc(r.subtitle) + "</small></span>" +
+        '<span class="nm">' + esc(r.title) + "</span>" +
       "</li>";
     }).join("") + "</ul>";
   }
