@@ -11,7 +11,7 @@
 
 /* ------------------------------------------------------------------ HUD */
 .hud{
-  position:fixed;top:52px;left:0;right:0;z-index:55;
+  position:fixed;top:71px;left:0;right:0;z-index:55;
   display:flex;align-items:center;gap:10px;
   padding:9px 16px;background:#0B0E13F2;border-bottom:1px solid var(--line);
   backdrop-filter:blur(8px)
@@ -54,7 +54,7 @@
   box-shadow:0 0 10px #F5C45166
 }
 
-body.playing{padding-top:118px}
+body.playing{padding-top:133px}
 
 /* ------------------------------------------------------------ story intro */
 .story{
@@ -304,5 +304,5 @@ body.playing{padding-top:118px}
 .livesleft .life{width:18px;height:18px}
 
 @media (min-width:620px){
-  body.playing{padding-top:124px}
+  body.playing{padding-top:139px}
 }
