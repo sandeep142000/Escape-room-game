@@ -178,6 +178,7 @@
         "<div><b>4 minutes</b>The clock never stops.</div>" +
       "</div>" +
 
+      roomMap() +
       '<div class="foot"><button class="big" id="begin">Start the clock</button></div>';
 
     document.getElementById("begin").onclick = function () {
@@ -187,6 +188,15 @@
       renderRoom();
     };
     document.getElementById("begin").focus();
+  }
+
+  function roomMap() {
+    return '<ul class="map">' + ROOMS.map(function (r, i) {
+      return "<li>" +
+        '<span class="dot">' + (i + 1) + "</span>" +
+        '<span class="nm">' + esc(r.title) + "</span>" +
+      "</li>";
+    }).join("") + "</ul>";
   }
 
   /* ---------------------------------------------------------------- rooms */

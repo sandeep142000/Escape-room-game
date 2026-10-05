@@ -57,41 +57,38 @@ body.playing{padding-top:143px}
 
 /* ------------------------------------------------------------ story intro */
 .story{
-  border-left:3px solid var(--bad);padding:12px 0 12px 18px;margin:18px 0;
+  border-left:3px solid var(--bad);padding:12px 0 12px 18px;margin:15px 0;
   font-size:clamp(19px,5.4vw,24px);line-height:1.45;max-width:54ch;color:#D4DAE2
 }
 .story b{color:var(--text)}
 .story + .lede{font-size:clamp(17px,4.6vw,21px);color:var(--text);font-weight:600}
 
 .mission{
-  display:grid;gap:10px;margin:18px 0 0;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr))
+  display:grid;gap:8px;margin:16px 0 0;
+  grid-template-columns:repeat(3,1fr)
 }
 .mission div{
-  background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 16px;
-  font-size:15.5px;line-height:1.45;color:#C3CAD3
+  background:var(--card);border:1px solid var(--line);border-radius:11px;padding:10px 12px;
+  font-size:13px;line-height:1.35;color:#C3CAD3
 }
-.mission b{display:block;color:var(--text);font-size:19px;margin-bottom:4px}
+.mission b{display:block;color:var(--text);font-size:16px;margin-bottom:2px}
 
 /* -------------------------------------------------------------- room map */
-.map{list-style:none;margin:20px 0;padding:0;max-width:52ch}
+.map{
+  list-style:none;margin:8px 0 0;padding:0;max-width:52ch;
+  display:grid;grid-template-columns:1fr 1fr;gap:8px
+}
 .map li{
-  display:flex;gap:13px;align-items:center;padding:12px 14px;
-  border:1px solid var(--line);border-radius:11px;margin-bottom:7px;
-  background:var(--card);font-size:17px;transition:all .3s ease
+  display:flex;gap:9px;align-items:center;padding:7px 9px;
+  border:1px solid var(--line);border-radius:10px;
+  background:var(--card);font-size:13.5px
 }
 .map li .dot{
-  width:29px;height:29px;flex:none;border-radius:50%;display:grid;place-items:center;
+  width:23px;height:23px;flex:none;border-radius:50%;display:grid;place-items:center;
   background:var(--card2);border:1px solid var(--line);color:var(--dim);
-  font-size:13px;font-weight:800
+  font-size:12px;font-weight:800
 }
 .map li .nm{font-weight:700;color:var(--dim)}
-.map li.done{border-color:#12503F;background:#0E1C18}
-.map li.done .dot{background:var(--good);border-color:var(--good);color:var(--accent-ink)}
-.map li.done .nm{color:var(--text)}
-.map li.now{border-color:var(--accent);background:#101E1B}
-.map li.now .dot{border-color:var(--accent);color:var(--accent)}
-.map li.now .nm{color:var(--text)}
 
 /* ----------------------------------------------------------- room header */
 .roomhead{margin-bottom:14px}
