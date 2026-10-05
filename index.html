@@ -7,19 +7,14 @@
 <title>Identity Lockdown — Digital Identity Escape Room</title>
 <meta name="description" content="Can you secure your identity before the attacker gets in? A four-minute cyber escape room.">
 <meta name="robots" content="noindex">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><text y='19' font-size='20'>🔐</text></svg>">
-<link rel="stylesheet" href="assets/styles.css?v=8">
-<link rel="stylesheet" href="assets/escape.css?v=8">
+<link rel="icon" href="assets/mark.png?v=9">
+<link rel="stylesheet" href="assets/styles.css?v=9">
+<link rel="stylesheet" href="assets/escape.css?v=9">
 </head>
 <body>
 
 <header class="topbar">
-  <div class="logo" aria-hidden="true">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="4" y="10" width="16" height="11" rx="2"/>
-      <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
-    </svg>
-  </div>
+  <img class="logo" src="assets/mark.png?v=9" alt="" width="96" height="88">
   <div class="brand"><span id="brand-name">Identity Lockdown</span><small id="brand-sub">Cyber Awareness Month</small></div>
   <div class="spacer"></div>
   <button class="linkbtn" id="nav-host" hidden>Host</button>
@@ -36,13 +31,13 @@
 <!-- Data and shared helpers first, then the host view, then the escape room,
      which boots on the last line it runs.
      Bump ?v= on every deploy or players keep running a cached copy. -->
-<script src="src/config.js?v=8"></script>
-<script src="src/rooms.js?v=8"></script>
-<script src="src/engine.js?v=8"></script>
-<script src="src/escape.js?v=8"></script>
-<script src="src/xlsx.js?v=8"></script>
-<script src="src/storage.js?v=8"></script>
-<script src="src/host.js?v=8"></script>
-<script src="src/escape-ui.js?v=8"></script>
+<script src="src/config.js?v=9"></script>
+<script src="src/rooms.js?v=9"></script>
+<script src="src/engine.js?v=9"></script>
+<script src="src/escape.js?v=9"></script>
+<script src="src/xlsx.js?v=9"></script>
+<script src="src/storage.js?v=9"></script>
+<script src="src/host.js?v=9"></script>
+<script src="src/escape-ui.js?v=9"></script>
 </body>
 </html>
