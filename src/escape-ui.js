@@ -617,14 +617,13 @@
 
     STORE.submit(result);
 
-    var player = run.player;
-    document.getElementById("lessons").onclick = function () { renderLessons(result, player); };
+    document.getElementById("lessons").onclick = renderLessons;
     document.getElementById("newplayer").onclick = function () { renderStart(null); };
     document.getElementById("lessons").focus();
   }
 
   /* Second results page, so the score screen itself never needs scrolling. */
-  function renderLessons(result, player) {
+  function renderLessons() {
     stage.innerHTML =
       '<p class="eyebrow">What to remember</p>' +
       '<ul class="takeaways">' +
@@ -641,20 +640,13 @@
       enrolCta() +
 
       '<div class="foot">' +
-        '<button class="big" id="again">' + (result.escaped ? "Play again" : "Try again") + "</button>" +
-        '<button class="big alt" id="newplayer">Next player</button>' +
+        '<button class="big" id="newplayer">Next player</button>' +
       "</div>";
 
     toTop();
 
-    document.getElementById("again").onclick = function () {
-      run = new IL.Run(player);
-      showHud(true);
-      startTicker();
-      renderRoom();
-    };
     document.getElementById("newplayer").onclick = function () { renderStart(null); };
-    document.getElementById("again").focus();
+    document.getElementById("newplayer").focus();
   }
 
   /* ------------------------------------------------------------------ host */
