@@ -12,8 +12,9 @@
 
    Digital Identity content follows the published enrolment guidance: privacy
    and consent, photo capture, review with manager confirmation where
-   automatic verification cannot complete, then choosing your Microsoft 365
-   photo. Participation is voluntary. The fallback for people without a
+   automatic verification cannot complete, then choosing either your
+   Microsoft 365 or Digital Identity photo as your profile picture.
+   Participation is voluntary. The fallback for people without a
    Digital Identity is a verification call with the person, their leader and
    the IT Service Desk.
 
@@ -232,9 +233,9 @@ window.IL_ROOMS = [
         "Read the privacy info and consent",
         "Take your photo on your device",
         "Your photo is checked and added",
-        "Pick your Microsoft 365 photo"
+        "Pick your Microsoft 365 or Digital Identity profile photo"
       ],
-      why: "Consent first, then your photo, then the check.",
+      why: "Consent first, then your photo, then the check. Last, you choose which photo — Microsoft 365 or Digital Identity — shows as your profile picture.",
       hint: "Nothing happens before you agree."
     },
     {
