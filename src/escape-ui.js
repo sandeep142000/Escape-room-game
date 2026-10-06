@@ -627,14 +627,16 @@
     stage.innerHTML =
       '<p class="eyebrow">What to remember</p>' +
       '<ul class="takeaways">' +
-        '<li><span class="num">1</span><div><b>A Digital Identity proves it&#8217;s really you.</b> ' +
-          "Voluntary. Two minutes.</div></li>" +
-        '<li><span class="num">2</span><div><b>The real process never asks for documents, codes or passwords.</b> ' +
-          "Anything that does is a phish.</div></li>" +
-        '<li><span class="num">3</span><div><b>Never approve a prompt you didn&#8217;t start.</b> ' +
-          "Never read out a code.</div></li>" +
-        '<li><span class="num">4</span><div><b>Verify on a channel they don&#8217;t control.</b> ' +
-          "Faces and voices can be faked.</div></li>" +
+        '<li><span class="num">1</span><div><b>A Digital Identity is a simple way to prove you are really you.</b> ' +
+          "You take a photo on your own phone, and it only takes about two minutes. It is your choice " +
+          "whether you set one up.</div></li>" +
+        '<li><span class="num">2</span><div><b>Woodside will never ask you for your passport, a login code or your password.</b> ' +
+          "If a message or a call asks for any of those, it is a scam. Do not reply to it.</div></li>" +
+        '<li><span class="num">3</span><div><b>If a sign-in request pops up and you did not just try to sign in, say no.</b> ' +
+          "Someone else has your password and is trying to get in. Never read a code out to anyone.</div></li>" +
+        '<li><span class="num">4</span><div><b>If you are not sure who you are talking to, hang up and check another way.</b> ' +
+          "Call them on a number you already have, or message them in Teams. Scammers can fake a face " +
+          "and a voice on a video call.</div></li>" +
       "</ul>" +
 
       enrolCta() +

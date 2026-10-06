@@ -44,7 +44,7 @@ window.VM_CONFIG = {
        the line still shows, just without a link. http/https only. */
     enrol: {
       heading: "No Digital Identity yet?",
-      text:    "It's voluntary and takes about two minutes.",
+      text:    "Setting one up is completely your choice, and it only takes about two minutes.",
       linkLabel: "Create it on the intranet",
       url: ""
     }
