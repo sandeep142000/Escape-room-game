@@ -25,8 +25,8 @@
    how does an attacker exploit it when you can't?
      room1  proving it's you when your usual proof is gone
      room2  impostors posing as the people who verify you
-     room3  how the real Digital Identity process works
-     room4  a phish that imitates that process
+     room3  reacting in the right order once something has gone wrong
+     room4  a phish that imitates the enrolment process
      room5  impersonation of someone else — what Digital Identity defends
    ========================================================================== */
 window.IL_ROOMS = [
@@ -220,36 +220,46 @@ window.IL_ROOMS = [
 /* ========================================================================== */
 {
   id: "room3",
-  title: "Prove Your Identity",
-  subtitle: "How a Digital Identity actually works",
+  title: "Damage Control",
+  subtitle: "Something's gone wrong — the order you react in matters",
   type: "order",
   task: "Tap the steps in the right order.",
   scenarios: [
     {
-      id: "r3-capture",
-      di: true,
-      brief: "Put the Digital Identity setup in order.",
+      id: "r3-phish",
+      brief: "A phishing email lands in your inbox. Put your response in order.",
       steps: [
-        "Read the privacy info and consent",
-        "Take your photo on your device",
-        "Your photo is checked and added",
-        "Pick your Microsoft 365 or Digital Identity profile photo"
+        "Don't click it or reply",
+        "Report it with the Phishing button",
+        "Delete it from your inbox",
+        "Warn your team if they got it too"
       ],
-      why: "Consent first, then your photo, then the check. Last, you choose which photo — Microsoft 365 or Digital Identity — shows as your profile picture.",
-      hint: "Nothing happens before you agree."
+      why: "Reporting it is what protects everyone else. Deleting it only helps you.",
+      hint: "Deleting it is not the first thing."
     },
     {
-      id: "r3-manualreview",
-      di: true,
-      brief: "Your photo wasn't matched automatically. What happens next?",
+      id: "r3-wrongsend",
+      brief: "You emailed a sensitive file to the wrong address. Put your response in order.",
       steps: [
-        "You submit your photo",
-        "The automatic check is tried",
-        "Your manager confirms it's you",
-        "Your Digital Identity is ready"
+        "Note what you sent and to whom",
+        "Report it to the Service Desk",
+        "Your leader and Privacy are told",
+        "They decide who needs notifying"
       ],
-      why: "If the automatic check fails, a manager confirms.",
-      hint: "A person steps in last."
+      why: "Own it early. A reported mistake is a small one.",
+      hint: "Hiding it is the only real mistake."
+    },
+    {
+      id: "r3-lost",
+      brief: "Your work laptop is stolen from a café. Put your response in order.",
+      steps: [
+        "Call the Service Desk straight away",
+        "They lock and wipe the device",
+        "Change your password",
+        "Report it to your leader"
+      ],
+      why: "Minutes matter — the sooner it's locked, the less is on it.",
+      hint: "The device goes first, then the account."
     }
   ]
 },

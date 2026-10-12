@@ -26,8 +26,10 @@ window.VM_CONFIG = {
     lives: 3,
 
     /* Rooms drawn at random can miss the point of the day, so this many are
-       forced to be Digital Identity scenarios. Room 3 always is one. */
-    minIdentityRooms: 3,
+       forced to be Digital Identity scenarios. Only rooms 1, 2 and 4 have any,
+       and 2 and 4 have exactly one each — asking for 3 would pin both to the
+       same scenario every run, so keep this at 2. */
+    minIdentityRooms: 2,
 
     /* Key fragments needed to escape. Below five, one slip still gets you out. */
     escapeAt: 4,
