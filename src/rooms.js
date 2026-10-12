@@ -221,7 +221,7 @@ window.IL_ROOMS = [
 {
   id: "room3",
   title: "Prove Your Identity",
-  subtitle: "How a Digital Identity works — and what happens without one",
+  subtitle: "How a Digital Identity actually works",
   type: "order",
   task: "Tap the steps in the right order.",
   scenarios: [
@@ -250,19 +250,6 @@ window.IL_ROOMS = [
       ],
       why: "If the automatic check fails, a manager confirms.",
       hint: "A person steps in last."
-    },
-    {
-      id: "r3-fallback",
-      di: true,
-      brief: "No Digital Identity. Put the slower check in order.",
-      steps: [
-        "You call the Service Desk",
-        "They can't confirm it's you",
-        "Your leader joins and confirms",
-        "Your access is restored"
-      ],
-      why: "It works — it just takes three people.",
-      hint: "Someone who knows you joins."
     }
   ]
 },
